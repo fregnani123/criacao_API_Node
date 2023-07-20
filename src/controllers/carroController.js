@@ -1,5 +1,19 @@
 const CarroServices = require('../services/CarroService');
 
 module.exports = {
+  buscarTodos: async (req,res) => {
+    let json = {erro:'', result:[]};
 
+    let carros = await carroServices();
+
+    for(let i in carros){
+     json.result.push({
+        codigo: carros[i].codigo, 
+        descricao: carros[i].modelo
+     });
+
+     res.json(json);
+
+    }
+  }
 };
