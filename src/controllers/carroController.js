@@ -1,4 +1,4 @@
-const CarroServices = require('../services/CarroService');
+const CarroService = require('../services/CarroService');
 
 module.exports = {
   buscarTodos: async (req,res) => {
