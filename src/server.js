@@ -11,6 +11,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 
 const publicDirectoryPath = path.join(__dirname, '../public');
 
+
 server.use(express.static(publicDirectoryPath));
 
 server.use('/api', routes);

@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ok</h1>
+    <div id="jsonResult"></div>
 </body>
+<script>
+    $(document).ready(function() {
+
+      $.ajax({
+        url: 'http://localhost:3000/api/carros', 
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          $('#jsonResult').text(JSON.stringify(data));
+        },
+        error: function() {
+          // Ocorreu um erro na requisição
+          $('#jsonResult').text('Erro ao carregar os dados.');
+        }
+      });
+    });
+    </script>
+    
 </html>
