@@ -8,23 +8,42 @@
 <body>
   <p id="p"></p>
 
-  <script>
-    const p = document.querySelector('#p');
-    const url = 'http://localhost:3000/api/carros';
+  <!DOCTYPE html>
+<html>
+  <body>
+    <p id="p"></p>
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Erro na solicitação HTTP');
-        }
-        return res.json();
-      })
-      .then((data) => {
-          
-      })
-      .catch((error) => {
-        console.error('Erro:', error);
-      });
-  </script>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <p id="p"></p>
+    
+        <script>
+          const p = document.querySelector('#p');
+          const url = 'http://localhost:3000/api/carros';
+    
+          fetch(url)
+            .then((res) => {
+              if (!res.ok) {
+                throw new Error('Erro na solicitação HTTP');
+              }
+              return res.json();
+            })
+            .then((data) => {
+              let modelos = [];
+              for (let index in data.result) {
+                const carro = data.result[index];
+                modelos.push(carro.modelo);
+              }
+              p.innerHTML = 'Modelo: ' + modelos.join('<br>Modelo: ');
+            })
+            .catch((error) => {
+              console.error('Erro:', error);
+            });
+        </script>
+      </body>
+    </html>
+    
+
 </body>
 </html>
