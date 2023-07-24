@@ -6,26 +6,25 @@
   <title>Document</title>
 </head>
 <body>
-  
-</body>
+  <p id="p"></p>
 
-<script>
-  const url = 'http://localhost:3000/api/carros';
-  
-  fetch(url)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Erro na solicitação HTTP');
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error('Erro:', error);
-    });
+  <script>
+    const p = document.querySelector('#p');
+    const url = 'http://localhost:3000/api/carros';
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Erro na solicitação HTTP');
+        }
+        return res.json();
+      })
+      .then((data) => {
+          
+      })
+      .catch((error) => {
+        console.error('Erro:', error);
+      });
   </script>
-  
-
+</body>
 </html>
