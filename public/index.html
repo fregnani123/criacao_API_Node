@@ -19,9 +19,10 @@
       <body>
         <p id="p"></p>
     
-        <script>
+        <!-- <script>
           const p = document.querySelector('#p');
-          const url = 'http://localhost:3000/api/carros';
+          const carroId = 1
+          const url = `http://localhost:3000/api/carros/`
     
           fetch(url)
             .then((res) => {
@@ -41,8 +42,32 @@
             .catch((error) => {
               console.error('Erro:', error);
             });
-        </script>
+        </script> -->
       </body>
+      <script>
+        const p = document.querySelector('#p');
+        const carroId = 5; // ID do carro que você deseja pegar
+        const url = `http://localhost:3000/api/carros/${carroId}`;
+      
+        fetch(url)
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error('Erro na solicitação HTTP');
+            }
+            return res.json();
+          })
+          .then((data) => {
+            // Aqui você pode acessar os dados do carro específico em 'data'
+            const carro = data.result; // Supondo que a resposta contenha o objeto do carro diretamente
+            p.innerHTML = 'Modelo: ' + carro.modelo;
+          })
+          .catch((error) => {
+            console.error('Erro:', error);
+          });
+      </script>
+      
+
+
     </html>
     
 
